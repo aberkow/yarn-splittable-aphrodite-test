@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Greeting from './Greeting';
+import RandomDiv from './RandomDiv';
 
 class AphroditeTest extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class AphroditeTest extends Component {
     return (
       <div>
         <Greeting />
+        <RandomDiv />
       </div>
     );
   }

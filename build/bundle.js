@@ -21516,6 +21516,10 @@
 	
 	var _Greeting2 = _interopRequireDefault(_Greeting);
 	
+	var _RandomDiv = __webpack_require__(205);
+	
+	var _RandomDiv2 = _interopRequireDefault(_RandomDiv);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21539,7 +21543,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_Greeting2.default, null)
+	        _react2.default.createElement(_Greeting2.default, null),
+	        _react2.default.createElement(_RandomDiv2.default, null)
 	      );
 	    }
 	  }]);
@@ -21573,13 +21578,27 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var styles = _aphrodite.StyleSheet.create({
+	var regularStyles = _aphrodite.StyleSheet.create({
 	  greetingContainer: {
 	    backgroundColor: 'red',
 	    color: 'white'
 	  },
 	  greetingTextHeader: {
 	    margin: '1rem'
+	  },
+	  smallScreen: {
+	    '@media screen and (max-width: 600px)': {
+	      backgroundColor: 'blue'
+	    }
+	  }
+	
+	});
+	
+	var specialStyles = _aphrodite.StyleSheet.create({
+	  onHover: {
+	    ':hover': {
+	      color: 'purple'
+	    }
 	  }
 	});
 	
@@ -21597,10 +21616,10 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: (0, _aphrodite.css)(styles.greetingContainer) },
+	        { className: (0, _aphrodite.css)(regularStyles.greetingContainer, regularStyles.smallScreen) },
 	        _react2.default.createElement(
 	          'h1',
-	          { className: (0, _aphrodite.css)(styles.greetingTextHeader) },
+	          { className: (0, _aphrodite.css)(regularStyles.greetingTextHeader) },
 	          'Hello!'
 	        ),
 	        _react2.default.createElement(
@@ -21610,7 +21629,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'p',
-	          null,
+	          { className: (0, _aphrodite.css)(specialStyles.onHover) },
 	          'This is a test of aphrodite.js'
 	        )
 	      );
@@ -23474,6 +23493,93 @@
 	// https://github.com/tildeio/rsvp.js/blob/cddf7232546a9cf858524b75cde6f9edf72620a7/lib/rsvp/asap.js
 	
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _aphrodite = __webpack_require__(180);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var divStyle = _aphrodite.StyleSheet.create({
+	  mainStyleSmall: {
+	    backgroundColor: 'green',
+	    color: 'orange',
+	    height: '5rem',
+	    width: '5rem',
+	    margin: '0 auto',
+	    textAlign: 'center'
+	  },
+	  mainStyleMedium: {
+	    '@media screen and (min-width: 601px)': {
+	      color: 'white'
+	    }
+	  },
+	  mainStyleLarge: {
+	    '@media screen and (min-width: 768px)': {
+	      backgroundColor: 'black'
+	    }
+	  }
+	});
+	
+	var fontStyle = _aphrodite.StyleSheet.create({
+	  mainStyleSmall: {
+	    '@media screen and (max-width: 600px)': {
+	      fontFamily: 'serif'
+	    }
+	  },
+	  mainStyleMedium: {
+	    '@media screen and (min-width: 601px)': {
+	      fontFamily: 'sans-serif'
+	    }
+	  }
+	});
+	
+	var RandomDiv = function (_Component) {
+	  _inherits(RandomDiv, _Component);
+	
+	  function RandomDiv(props) {
+	    _classCallCheck(this, RandomDiv);
+	
+	    return _possibleConstructorReturn(this, (RandomDiv.__proto__ || Object.getPrototypeOf(RandomDiv)).call(this, props));
+	  }
+	
+	  _createClass(RandomDiv, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: (0, _aphrodite.css)(divStyle.mainStyleSmall, divStyle.mainStyleMedium, divStyle.mainStyleLarge) },
+	        _react2.default.createElement(
+	          'p',
+	          { className: (0, _aphrodite.css)(fontStyle.mainStyleSmall, fontStyle.mainStyleMedium) },
+	          'This is a random div!'
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return RandomDiv;
+	}(_react.Component);
+	
+	;
+	
+	module.exports = RandomDiv;
 
 /***/ }
 /******/ ]);
